@@ -23,12 +23,31 @@ function readLine() {
 }
 
 function pickingNumbers(a) {
+
+    //solution 1
     var map = new Map();
     var maxCount = 0;
     for (var i = 0; i < a.length; i++) {
         var count = 0;
         if (!map.has(a[i])) {
             map.set(a[i]);
+            for (var j = 0; j < a.length; j++) {
+                if (a[j] == a[i] || a[j] == a[i] + 1) {
+                    count++;
+                }
+            }
+            maxCount = Math.max(maxCount, count);
+        }
+    }
+    return maxCount;
+
+    //solution 2
+    var array = new Array;
+    var maxCount = 0;
+    for (var i = 0; i < a.length; i++) {
+        var count = 0;
+        if (array.indexOf(-1)) {
+            array.push(a[i]);
             for (var j = 0; j < a.length; j++) {
                 if (a[j] == a[i] || a[j] == a[i] + 1) {
                     count++;
