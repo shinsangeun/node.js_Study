@@ -1,30 +1,6 @@
-'use strict';
-
-const fs = require('fs');
-
-process.stdin.resume();
-process.stdin.setEncoding('utf-8');
-
-let inputString = '';
-let currentLine = 0;
-
-process.stdin.on('data', function(inputStdin) {
-    inputString += inputStdin;
-});
-
-process.stdin.on('end', function() {
-    inputString = inputString.split('\n');
-
-    main();
-});
-
-function readLine() {
-    return inputString[currentLine++];
-}
-
 function pickingNumbers(a) {
-
-    //solution 1
+//solution 1
+     a = [1,2,2,3,1,2];
     var map = new Map();
     var maxCount = 0;
     for (var i = 0; i < a.length; i++) {
@@ -36,12 +12,21 @@ function pickingNumbers(a) {
                     count++;
                 }
             }
+            console.log(maxCount,count);
             maxCount = Math.max(maxCount, count);
         }
     }
+    console.log("result = >" +maxCount);
     return maxCount;
+}
 
-    //solution 2
+pickingNumbers([4,6,5,3,3,1]);
+
+
+
+function pickingNumber2(a) {
+//solution 2
+    a = [1,2,2,3,1,2];
     var array = new Array;
     var maxCount = 0;
     for (var i = 0; i < a.length; i++) {
@@ -53,22 +38,13 @@ function pickingNumbers(a) {
                     count++;
                 }
             }
+            console.log(maxCount,count);
             maxCount = Math.max(maxCount, count);
         }
     }
+    console.log("result = >" +maxCount);
     return maxCount;
 }
 
-function main() {
-    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+pickingNumber2([4,6,5,3,3,1]);
 
-    const n = parseInt(readLine().trim(), 10);
-
-    const a = readLine().replace(/\s+$/g, '').split(' ').map(aTemp => parseInt(aTemp, 10));
-
-    const result = pickingNumbers(a);
-
-    ws.write(result + '\n');
-
-    ws.end();
-}
