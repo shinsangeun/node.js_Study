@@ -20,3 +20,11 @@ objArr.sort(function (a,b) {
 console.log(`오름차순: ${numArr1}`);
 console.log(`내림차순: ${numArr2}`);
 console.log(objArr);
+
+
+//reverse-배열 순서를 반대로 나열
+const str = 'abcdefghijklmnop';
+const arr = str.split('');
+arr.reverse();
+
+console.log(arr.join(''));
