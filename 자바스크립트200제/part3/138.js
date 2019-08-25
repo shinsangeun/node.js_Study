@@ -1,3 +1,4 @@
+//promise
 function promiseForHomework(mustDo) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
